@@ -15,10 +15,18 @@
 				<br>
 				<h4>Post:</h4> <%= post.body %>
 				<br>
-				<h5>Comments: </h5><%= post.comments.all%>
-				<br>
+				<% if post.comments.count != 0 %>
+					<div class="comments">
+						<h4>Comments: </h4>
+						<% post.comments.each do |comment| %>
+							
+							<h5>Posted By: <%= comment.user.username %></h5>
+							<%= comment.comment %>
+						<% end %>
+					</div>
+				<% end %>
 				<form method="post" action="/delete-post">
-					<input type="hidden" name="id" value="<%= post.id %>">
+					<input type="hidden" name="id" value="<%= post.id %>"><br>
 					<button type="submit">Delete Post</button>
 				</form>
 			</div>
