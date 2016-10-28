@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Profile</title>
+</head>
+<body>
+	<div class="intro">
+		<h1><%= current_user.first_name %>'s Homepage</h1>
+	</div>
+
+	<div>
+		<% @user_posts.each do |post| %>
+			<div class="user_posts">
+				<h4>Title:</h4> <%= post.title%>
+				<br>
+				<h4>Post:</h4> <%= post.body %>
+				<br>
+				<h5>Comments: </h5><%= post.comments.all%>
+				<br>
+				<form method="post" action="/delete-post">
+					<input type="hidden" name="id" value="<%= post.id %>">
+					<button type="submit">Delete Post</button>
+				</form>
+			</div>
+		<% end %>	
+	</div>
+
+	<div class="user_information">
+		<div class="info">
+			<h4>Your Information</h4>
+			<h5>Name: <span class="one"><%= @user.first_name%> <%= @user.last_name%></span></h5>
+			<h5>Age: <span class="one"><%= @user.age%></span></h5>
+			<h5>Username: <span class="one"><%= @user.username%></span></h5>
+			<h5>Email: <span class="one"><%= @user.email%></span></h5>
+			<h5>Number of Posts: <span class="one"><%= @user.posts.count%></span></h5>
+			<br>
+			<a href="/edit">Edit Info</a>
+		</div>
+	</div>
+</body>
+</html>

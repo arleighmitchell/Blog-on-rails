@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title></title>
+</head>
+<body>
+
+	<div class="intro">
+		<% if current_user %>
+		<h1>Welcome <%= current_user.first_name %>!</h1>
+		<% else %>
+		<h1>Welcome!</h1>
+		<% end %>
+		<h3>Here's What's on Everyone's Minds </h3>
+	</div>
+
+	<div class="create_post">
+		<% if current_user %>
+			<form action="/create-post" method="post">
+				<label class="label" for="title">Title</label><br>
+				<input type="text" name="title"><br>
+				<label class="label" for="body">Message</label><br>
+				<textarea rows="7" cols="35" type="textarea" name="body"></textarea>
+				<br>
+				<br>
+				<button type="submit">Create Post</button>
+			</form>
+		<% end %>
+	</div>
+
+	<div>
+		<% @posts.each do |post| %>
+			<div class="posts">
+				<h4>Posted By: <span><%= post.user.username %></span></h4> 
+				<h4>Title: <span><%= post.title %></span></h4> 
+				<a href="/posts/<%= post.id%>"><h5>Post:</h5> <span></a><%= post.body %></span>
+				
+				<% if post.comments.count != 0 %>
+					<div class="comments">
+						<% post.comments.each do |comment| %>
+							<h5>Comments: </h5><%= comment.comment %>
+							<h5>Posted By: </h5><%= comment.user.username %>
+						<% end %>
+					</div>
+				<% end %>
+
+				<div class="create_comment">
+					<% if current_user %>
+						<form action="/create-comment" method="post">
+							<textarea rows="4" cols="25" type="textarea" name="comment"></textarea>
+							<input type="hidden" name="id" value="<%= post.id %>">
+							<br>
+							<button type="submit">Comment</button>
+						</form>
+					<% end %>
+				</div>
+
+			</div>
+			<br>
+			<br>
+		<% end %>
+
+	</div>
+	
+</body>
+</html>

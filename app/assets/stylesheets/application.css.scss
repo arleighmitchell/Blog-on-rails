@@ -1,0 +1,131 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+	padding: 20px;
+	background-color: rgba(0,0,0,0.2);
+	padding: 50px 75px 75px 75px;
+}
+html, body {
+	background-image: url("one.jpg");
+	background-size: 100%;
+	background-attachment: fixed;
+}
+
+.create_post {
+	font-size: 17px;
+	float: right;
+	clear: right;
+	max-width: 450px;
+	margin-right: 50px;
+	background: rgba(0,0,0,0.2);
+	padding: 15px;
+}
+
+.form {
+	font-size: 17px;
+	background: rgba(0,0,0,0.2);
+	padding: 15px;
+	max-width: 300px;
+}
+
+h1 {
+	font-size: 50px;
+	font-weight: lighter;
+	margin: 15px;
+}
+
+h3 {
+	font-size: 30px;
+	font-weight: lighter;
+	margin: 10px;
+}
+
+h4 {
+	font-weight: bold;
+	font-size: 25px;
+}
+
+h5 {
+	font-size: 15px;
+	font-weight: bold;
+}
+
+h6 {
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.info {
+	background-color: white;
+	border-style: solid;
+	border-width: 2px;
+	max-width: 300px;
+	padding: 10px;
+	font-size: 12px;
+	margin-left: 25px;
+}
+
+.intro {
+	color: white;
+	background: rgba(0,0,0,0.2);
+}
+.label{
+	color: white;
+	font-size: 20px;
+	font-weight: lighter;
+}
+
+.navbar {
+	background-color: white;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+.one {
+	font-size: 12px;
+}
+
+.post {
+	background-color: white;
+	border-style: solid;
+	border-width: 3px;
+	max-width: 600px;
+	font-size: 20px;
+	padding: 10px;
+	margin-top: 50px;
+}
+
+.posts {
+	display: block;
+	float: left;
+	clear: left;
+	background-color: white;
+	border-style: solid;
+	border-width: 3px;
+	max-width: 600px;
+	font-size: 20px;
+	padding: 10px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+span {
+	font-size: 20px;
+	font-weight: normal;
+}
+
+.user_posts {
+	display: block;
+	float: right;
+	clear: right;
+	background-color: white;
+	border-style: solid;
+	border-width: 3px;
+	max-width: 600px;
+	min-width: 300px;
+	font-size: 20px;
+	padding: 10px;
+	margin: 25px 75px 25px 0px;
+}
